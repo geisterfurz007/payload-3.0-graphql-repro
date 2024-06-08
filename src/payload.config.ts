@@ -4,6 +4,8 @@ import path from 'path'
 import { buildConfig } from 'payload/config'
 import { fileURLToPath } from 'url'
 
+import GraphQLJSON from "graphql-type-json";
+
 import { Users } from './collections/Users'
 
 const filename = fileURLToPath(import.meta.url)
@@ -25,7 +27,7 @@ export default buildConfig({
   graphQL: {
     queries: (graphQL, context) => ({
       foo: {
-        type: graphQL.GraphQLString,
+        type: GraphQLJSON,
         args: {},
         resolve: async () => 'foo',
       }

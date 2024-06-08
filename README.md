@@ -6,5 +6,5 @@ This is a reproduction for a potential issue with Payload 3.0.
 2. Install dependencies `yarn`
 3. Start the database `./start-database.sh`
 4. Start the dev server `yarn dev`
-5. Open http://localhost:3000/admin
+5. Trigger a schema build `curl -X POST http://localhost:3000/api/graphql`
 6. *poof*

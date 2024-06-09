@@ -7,6 +7,9 @@ import { fileURLToPath } from 'url'
 import GraphQLJSON from "graphql-type-json";
 
 import { Users } from './collections/Users'
+import { Media } from './collections/Media'
+
+import sharp from "sharp";
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -15,7 +18,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  collections: [Users],
+  collections: [Users, Media],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -32,5 +35,6 @@ export default buildConfig({
         resolve: async () => 'foo',
       }
     })
-  }
+  },
+  sharp,
 })
